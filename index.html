@@ -3,36 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comparativa PRO Vehiculo</title>
+  <title>Comparativa de Costes Vehículo</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="container">
-<h1>🚗 Comparativa PRO Consumo</h1>
+  <div class="container">
+    <header class="hero">
+      <h1>🚗 Comparativa Costes Vehículo</h1>
+      <p>Calculadora visual en tiempo real para comparar eléctrico vs gasolina.</p>
+    </header>
 
-<div class="controls">
-<label>€/kWh <input id="precioKwh" type="number" step="0.01" value="0.12"></label>
-<label>€/L gasolina <input id="precioGasolina" type="number" step="0.01" value="1.37"></label>
-<label>km/año <input id="kmAnuales" type="number" value="15000"></label>
-<label>Consumo gasolina 
-<select id="consumoGasolina">
-  <option value="7">7 L/100km</option>
-  <option value="7.5">7.5 L/100km</option>
-</select>
-</label>
-<button id="reset">Reset</button>
-</div>
+    <section class="card params">
+      <h2>⚙️ Parámetros</h2>
+      <div class="grid grid-3">
+        <label>
+          <span>€/kWh</span>
+          <input id="precioKwh" type="number" step="0.01" min="0" value="0.12" />
+        </label>
+        <label>
+          <span>€/L gasolina</span>
+          <input id="precioGasolina" type="number" step="0.01" min="0" value="1.37" />
+        </label>
+        <label>
+          <span>km/año</span>
+          <input id="kmAnuales" type="number" step="100" min="0" value="15000" />
+        </label>
+      </div>
+    </section>
 
-<canvas id="chart"></canvas>
+    <section class="grid grid-2">
+      <article class="card electric">
+        <h2>⚡ Eléctrico</h2>
+        <p>Coste / km: <strong id="costeElectricoKm">0,0000 €</strong></p>
+        <p>Coste / año: <strong id="costeElectricoAnual">0 €</strong></p>
+      </article>
 
-<div class="results">
-<p>Coste eléctrico: <span id="electrico"></span></p>
-<p>Coste gasolina: <span id="gasolina"></span></p>
-<p>Ahorro anual: <span id="ahorro"></span></p>
-</div>
+      <article class="card fuel">
+        <h2>⛽ Gasolina</h2>
+        <p>Coste / km: <strong id="costeGasolinaKm">0,0000 €</strong></p>
+        <p>Coste / año: <strong id="costeGasolinaAnual">0 €</strong></p>
+      </article>
+    </section>
 
-<button id="export">Exportar imagen</button>
-</div>
-<script src="script.js"></script>
+    <section class="card savings">
+      <h2>📈 Ahorro</h2>
+      <p>Ahorro por km: <strong id="ahorroPorKm">0,0000 €</strong></p>
+      <p>Ahorro anual: <strong id="ahorroAnual">0 €</strong></p>
+    </section>
+
+    <section class="card accumulated">
+      <h2>💰 Ahorro acumulado</h2>
+      <p>Km recorridos: <strong id="kmValor">28.000 km</strong></p>
+      <input id="km" type="range" min="0" max="150000" step="100" value="28000" />
+      <p class="big"><strong id="ahorroTotal">0 €</strong></p>
+    </section>
+
+    <section class="card notes">
+      <h2>ℹ️ Supuestos</h2>
+      <ul>
+        <li>Consumo eléctrico: <strong>16,8 kWh/100 km</strong></li>
+        <li>Consumo gasolina: <strong>7 L/100 km</strong></li>
+        <li>Valores por defecto iguales a la infografía actual.</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,5 +1,91 @@
-body{font-family:Arial;background:#0b1020;color:white;text-align:center}
-.container{max-width:800px;margin:auto}
-.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
-.results{margin-top:20px;font-size:20px}
-button{padding:10px;margin-top:10px}
+:root {
+  --bg: #0b1020;
+  --card: #141b34;
+  --card2: #10172b;
+  --text: #eef2ff;
+  --muted: #abb6d1;
+  --border: rgba(255,255,255,0.08);
+  --blue: #60a5fa;
+  --red: #f87171;
+  --green: #34d399;
+  --yellow: #fbbf24;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #182247 0%, var(--bg) 55%);
+}
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+}
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.card {
+  background: linear-gradient(180deg, var(--card), var(--card2));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  margin-bottom: 18px;
+}
+.card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.params label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.params span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+input[type="number"] {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+}
+input[type="range"] {
+  width: 100%;
+  margin-top: 8px;
+}
+.electric h2 { color: var(--blue); }
+.fuel h2 { color: var(--red); }
+.savings h2 { color: var(--green); }
+.accumulated h2 { color: var(--yellow); }
+.big {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin: 18px 0 0;
+  color: var(--green);
+}
+.notes ul {
+  padding-left: 18px;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+strong { color: var(--text); }
+@media (max-width: 640px) {
+  .container { padding: 16px; }
+  .card { padding: 16px; }
+}
